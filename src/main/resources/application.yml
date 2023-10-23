@@ -1,0 +1,38 @@
+
+server:
+  port: 8082
+  servlet:
+    context-path: /inventory
+
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      healthcheck:
+        enabled: true
+      lease:
+        duration: 5
+
+  management:
+   endpoints:
+     web:
+       exposure:
+         include:*
+
+spring:
+  application:
+    name: inventory-service
+  cloud:
+    gateway:
+      routes[0].id:inventory-service
+      routes[0].uri:lb://INVENTORY-SERVICE
+      routes[0].predicates[0]:Path=/inventory
+
+logging:
+  file:
+    name: D:/myLogs/inventory.log
+
