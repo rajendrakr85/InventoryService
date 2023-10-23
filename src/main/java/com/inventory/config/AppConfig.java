@@ -1,5 +1,5 @@
 package com.inventory.config;
-
+/*
 import brave.sampler.Sampler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,4 +16,4 @@ public class AppConfig {
     public RestTemplate restTemplate(){
         return  new RestTemplate();
     }
-}
+}*/
